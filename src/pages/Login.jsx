@@ -21,18 +21,16 @@ export default function Login() {
     resolver: zodResolver(schema),
   })
 
-  async function onSubmit(data) {
-    try {
-      await signIn(data.email, data.password)
-      toast.success('¡Bienvenido!')
-      navigate('/dashboard')
-    } catch {
-      catch (error) {
-  console.log(error)
-  toast.error(error.message)
-}
-    }
+async function onSubmit(data) {
+  try {
+    await signIn(data.email, data.password)
+    toast.success('¡Bienvenido!')
+    navigate('/dashboard')
+  } catch (error) {
+    console.log(error)
+    toast.error(error.message)
   }
+}
 
   return (
     <div className="min-h-screen bg-dark-900 flex items-center justify-center p-4">
