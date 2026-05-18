@@ -27,7 +27,10 @@ export default function Login() {
       toast.success('¡Bienvenido!')
       navigate('/dashboard')
     } catch {
-      toast.error('Correo o contraseña incorrectos')
+      catch (error) {
+  console.log(error)
+  toast.error(error.message)
+}
     }
   }
 
